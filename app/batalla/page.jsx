@@ -48,7 +48,7 @@ const BatallaPage = () => {
                             <span>Cantidad de Rondas: {resultado.rondas}</span>
                         </div>
                         {
-                            resultado.ganador == "Empate" ? (
+                            resultado.ganador == "empate" ? (
                                 <>
                                     <span>La batalla terminó en Empate
                                     </span>

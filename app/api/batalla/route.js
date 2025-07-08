@@ -15,7 +15,7 @@ export async function POST(request) {
 
         //calculamos una variación aleatoria entre 90% y 110% del daño base multiplicado
         const variacion = randomBetween(0.9,1.1);
-        base = base + variacion;
+        base = base * variacion;
 
         //probabilidad del 10% de fallo, ataque que no hará daño
         if(Math.random() < 0.1) return 0;
@@ -57,7 +57,7 @@ export async function POST(request) {
     vidaB = Math.max(vidaB, 0);
 
     //Definimos al ganador
-    const ganador = vidaA === vidaB ? "Empate" : vidaA > vidaB ? personaje1.nombre : personaje2.nombre;
+    const ganador = vidaA === vidaB ? "empate" : vidaA > vidaB ? personaje1.nombre : personaje2.nombre;
 
     //devolvemos al frotend la respuesta con el resultado
     return new Response (JSON.stringify({ganador,vidaA,vidaB,rondas}),{
